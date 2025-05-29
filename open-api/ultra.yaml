@@ -20,10 +20,56 @@ paths:
       summary: order
       description: |
         Request for a base64-encoded unsigned swap transaction to be used in `POST /ultra/v1/execute`
-        
+
         :::note
         - Refer to [Ultra API doc](/docs/ultra-api/get-order) for more information
         :::
+      parameters:
+        - in: query
+          name: inputMint
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: outputMint
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: amount
+          schema:
+            type: string
+          required: true
+        - in: query
+          name: taker
+          schema:
+            type: string
+            nullable: true
+          required: false
+        - in: query
+          name: referralAccount
+          schema:
+            type: string
+          required: false
+        - in: query
+          name: referralFee
+          schema:
+            type: number
+            minimum: 50
+            maximum: 255
+          required: false
+        - in: query
+          name: excludeRouters
+          schema:
+            type: string
+            enum:
+              - metis
+              - jupiterz
+              - hashflow
+              - dflow
+              - pyth
+              - okx
+          required: false
       responses:
         '200':
           description: Successful response
@@ -100,9 +146,8 @@ paths:
                       - hashflow
                   transaction:
                     description: "Unsigned base-64 encoded transaction to be signed and used in `/execute`"
-                    type:
-                      - string
-                      - 'null'
+                    type: string
+                    nullable: true
                   gasless:
                     type: boolean
                   requestId:
@@ -111,9 +156,8 @@ paths:
                   totalTime:
                     type: number
                   taker:
-                    type:
-                      - string
-                      - 'null'
+                    type: string
+                    nullable: true
                   quoteId:
                     type: string
                   maker:
@@ -134,17 +178,14 @@ paths:
                     type: object
                     properties:
                       amplificationRatio:
-                        type:
-                          - string
-                          - 'null'
+                        type: string
+                        nullable: true
                       otherAmount:
-                        type:
-                          - number
-                          - 'null'
+                        type: number
+                        nullable: true
                       simulatedIncurredSlippageBps:
-                        type:
-                          - number
-                          - 'null'
+                        type: number
+                        nullable: true
                       slippageBps:
                         type: number
                       categoryName:
@@ -176,83 +217,33 @@ paths:
                   - requestId
                   - totalTime
                   - taker
-        '400':
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                required:
-                  - error
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                required:
-                  - error
-      parameters:
-        - in: query
-          name: inputMint
-          schema:
-            type: string
-          required: true
-        - in: query
-          name: outputMint
-          schema:
-            type: string
-          required: true
-        - in: query
-          name: amount
-          schema:
-            type: string
-          required: true
-        - in: query
-          name: taker
-          schema:
-            type: string
-          required: false
-        - in: query
-          name: referralAccount
-          schema:
-            type: string
-          required: false
-        - in: query
-          name: referralFee
-          schema:
-            type: number
-            minimum: 50
-            maximum: 255
-          required: false
-        - in: query
-          name: excludeRouters
-          schema:
-            type: string
-            enum:
-              - metis
-              - jupiterz
-              - hashflow
-              - dflow
-              - pyth
-              - okx
-          required: false
+
   /execute:
     post:
       summary: execute
       description: |
         Execute the signed transaction and get the execution status
-        
+
         :::note
         - Do note that the `requestId` is found in the response of `/order`
         - Refer to [Ultra API doc](/docs/ultra-api/execute-order) for more information
         :::
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                signedTransaction:
+                  type: string
+                  description: "The signed transaction to execute"
+                requestId:
+                  type: string
+                  description: "Found in response of `/order`"
+              required:
+                - signedTransaction
+                - requestId
       responses:
         '200':
           description: Successful response
@@ -312,11 +303,8 @@ paths:
                 properties:
                   error:
                     type: string
-                  code:
-                    type: number
                 required:
                   - error
-                  - code
         '500':
           description: Internal server error
           content:
@@ -326,35 +314,24 @@ paths:
                 properties:
                   error:
                     type: string
-                  code:
-                    type: number
                 required:
                   - error
-                  - code
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                signedTransaction:
-                  type: string
-                  description: "The signed transaction to execute"
-                requestId:
-                  type: string
-                  description: "Found in response of `/order`"
-              required:
-                - signedTransaction
-                - requestId
-  /balances/:address:
+
+  /balances/{address}:
     get:
       summary: balances
       description: |
         Request for token balances of an account
-        
+
         :::note
         - Refer to [Ultra API doc](/docs/ultra-api/get-balances) for more information
         :::
+      parameters:
+        - in: path
+          name: address
+          required: true
+          schema:
+            type: string
       responses:
         '200':
           description: Successful response
@@ -400,21 +377,22 @@ paths:
                     type: string
                 required:
                   - error
-      parameters:
-          - schema:
-              type: string
-            in: path
-            name: address
-            required: true
+
   /shield:
     get:
       summary: shield
       description: |
         Request for token information and warnings of mints
-          
+
         :::note
         - Refer to [Ultra API doc](/docs/ultra-api/get-shield) for more information
         :::
+      parameters:
+        - in: query
+          name: mints
+          schema:
+            type: string
+          required: true
       responses:
         '200':
           description: Successful response
@@ -461,13 +439,7 @@ paths:
                     type: string
                 required:
                   - error
-      parameters:
-          - in: query
-            name: mints
-            schema:
-              type: string
-            required: true
-            description: "Comma separated list of mints to get information for"
+
   /order/routers:
     get:
       summary: routers
@@ -499,3 +471,25 @@ paths:
                   required:
                     - id
                     - name
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                  - error
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                  - error

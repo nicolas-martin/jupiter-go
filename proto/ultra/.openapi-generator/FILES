@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+README.md
+models/balances_address_get200_response_value.proto
+models/execute_post200_response.proto
+models/execute_post200_response_swap_events_inner.proto
+models/execute_post400_response.proto
+models/execute_post_request.proto
+models/order_get200_response.proto
+models/order_get200_response_dynamic_slippage_report.proto
+models/order_get200_response_platform_fee.proto
+models/order_get200_response_route_plan_inner.proto
+models/order_get200_response_route_plan_inner_swap_info.proto
+models/order_routers_get200_response_inner.proto
+models/shield_get200_response.proto
+models/shield_get200_response_warnings_value_inner.proto
+models/shield_get200_response_warnings_value_inner_array.proto
+services/default_service.proto

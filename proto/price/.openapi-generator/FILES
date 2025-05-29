@@ -1,4 +1,3 @@
-.openapi-generator-ignore
 README.md
 models/depth.proto
 models/extra_info.proto
