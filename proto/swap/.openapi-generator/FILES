@@ -1,0 +1,17 @@
+.openapi-generator-ignore
+README.md
+models/account_meta.proto
+models/float_array.proto
+models/indexed_route_map_response.proto
+models/instruction.proto
+models/platform_fee.proto
+models/quote_response.proto
+models/route_plan_step.proto
+models/swap_info.proto
+models/swap_instructions_response.proto
+models/swap_mode.proto
+models/swap_request.proto
+models/swap_request_prioritization_fee_lamports.proto
+models/swap_request_prioritization_fee_lamports_priority_level_with_max_lamports.proto
+models/swap_response.proto
+services/swap_service.proto
