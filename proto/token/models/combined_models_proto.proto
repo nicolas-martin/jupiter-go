@@ -12,7 +12,7 @@ syntax = "proto3";
 
 package jupiter.token;
 
-import public "google/protobuf/any.proto";
+import public "google/protobuf/any.proto.proto";
 
 message Mint {
 

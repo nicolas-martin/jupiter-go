@@ -13,7 +13,7 @@ syntax = "proto3";
 package jupiter.ultra.services.defaultservice;
 
 import "google/protobuf/empty.proto";
-import public "ultra/models/combined_models_proto.proto";
+import public "models/combined_models/proto.proto";
 
 service DefaultService {
   rpc BalancesAddressGet (BalancesAddressGetRequest) returns (BalancesAddressGetResponse);

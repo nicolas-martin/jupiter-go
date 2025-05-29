@@ -86,8 +86,7 @@ generate-openapi:
 clean:
 	@echo "Cleaning generated files..."
 	rm -rf gen/
-	rm -rf proto/*/combined_models.proto
-	find proto/ -name "*.proto" -not -path "proto/*/combined_models.proto" -delete
+	rm -rf proto/*
 
 # Install required dependencies
 install-deps:
