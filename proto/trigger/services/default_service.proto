@@ -13,21 +13,7 @@ syntax = "proto3";
 package openapitools.services.defaultservice;
 
 import "google/protobuf/empty.proto";
-import public "models/cancel_order_post200_response.proto";
-import public "models/cancel_order_post_request.proto";
-import public "models/cancel_orders_post200_response.proto";
-import public "models/cancel_orders_post400_response.proto";
-import public "models/cancel_orders_post500_response.proto";
-import public "models/cancel_orders_request_body.proto";
-import public "models/create_order_post200_response.proto";
-import public "models/create_order_post400_response.proto";
-import public "models/create_order_post500_response.proto";
-import public "models/create_orders_request_body.proto";
-import public "models/execute_post200_response.proto";
-import public "models/execute_post400_response.proto";
-import public "models/execute_post500_response.proto";
-import public "models/execute_request_body.proto";
-import public "models/get_trigger_orders_get200_response.proto";
+import public "models/combined_models/proto.proto";
 
 service DefaultService {
   rpc CancelOrderPost (CancelOrderPostRequest) returns (CancelOrderPostResponse);

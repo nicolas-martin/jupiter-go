@@ -13,7 +13,7 @@ syntax = "proto3";
 package openapitools.services.defaultservice;
 
 import "google/protobuf/empty.proto";
-import public "models/price_response.proto";
+import public "models/combined_models/proto.proto";
 
 service DefaultService {
   rpc RootGet (RootGetRequest) returns (RootGetResponse);

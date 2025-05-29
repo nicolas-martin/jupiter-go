@@ -12,8 +12,133 @@ syntax = "proto3";
 
 package openapitools;
 
-import public "models/quote_response.proto";
-import public "models/swap_request_prioritization_fee_lamports.proto";
+
+message AccountMeta {
+
+  string pubkey = 440553919;
+
+  bool is_signer = 438428705;
+
+  bool is_writable = 102737688;
+
+}
+
+message FloatArray {
+
+  repeated float float_array = 401292620;
+
+}
+
+message IndexedRouteMapResponse {
+
+  // All the mints that are indexed to match in indexedRouteMap
+  repeated string mint_keys = 46870451;
+
+  // All the possible route and their corresponding output mints
+  map<string, FloatArray> indexed_route_map = 374684520;
+
+}
+
+message Instruction {
+
+  string program_id = 32609462;
+
+  repeated AccountMeta accounts = 526533661;
+
+  string data = 3076010;
+
+}
+
+message PlatformFee {
+
+  string amount = 340111274;
+
+  int32 fee_bps = 439286357;
+
+}
+
+message QuoteResponse {
+
+  string input_mint = 312726457;
+
+  string in_amount = 189264;
+
+  string output_mint = 287752993;
+
+  // - Calculated output amount from routing engine - The value includes platform fees and DEX fees, excluding slippage 
+  string out_amount = 240216681;
+
+  // - Calculated minimum output amount after accounting for `slippageBps` on the `outAmount` value - Not used by `/swap` endpoint to build transaction 
+  string other_amount_threshold = 471434902;
+
+  SwapMode swap_mode = 197991219;
+
+  int32 slippage_bps = 392701582;
+
+  PlatformFee platform_fee = 155890106;
+
+  string price_impact_pct = 513816352;
+
+  repeated RoutePlanStep route_plan = 375756640;
+
+  float context_slot = 43164304;
+
+  float time_taken = 62588119;
+
+}
+
+message RoutePlanStep {
+
+  SwapInfo swap_info = 198111272;
+
+  int32 percent = 142056380;
+
+}
+
+message SwapInfo {
+
+  string amm_key = 345407776;
+
+  string label = 102727412;
+
+  string input_mint = 312726457;
+
+  string output_mint = 287752993;
+
+  string in_amount = 189264;
+
+  string out_amount = 240216681;
+
+  string fee_amount = 490987313;
+
+  string fee_mint = 195783301;
+
+}
+
+message SwapInstructionsResponse {
+
+  // - If you set `{\\\"prioritizationFeeLamports\\\": {\\\"jitoTipLamports\\\": 5000}}`, you will see a custom tip instruction to Jito here. 
+  repeated Instruction other_instructions = 60066421;
+
+  // - To setup the compute budget for the transaction. 
+  repeated Instruction compute_budget_instructions = 45880236;
+
+  // - To setup required token accounts for the users. 
+  repeated Instruction setup_instructions = 390494169;
+
+  Instruction swap_instruction = 188311582;
+
+  Instruction cleanup_instruction = 23737486;
+
+  // - The lookup table addresses if you are using versioned transaction. 
+  repeated string address_lookup_table_addresses = 78076843;
+
+}
+
+enum SwapMode {
+  SWAP_MODE_EXACTIN = 0;
+  SWAP_MODE_EXACTOUT = 1;
+}
 
 message SwapRequest {
 
@@ -55,6 +180,40 @@ message SwapRequest {
   int32 blockhash_slots_to_expiry = 168639288;
 
   QuoteResponse quote_response = 192572765;
+
+}
+
+message SwapRequestPrioritizationFeeLamports {
+
+  SwapRequestPrioritizationFeeLamportsPriorityLevelWithMaxLamports priority_level_with_max_lamports = 383247561;
+
+  // - Exact amount of tip to use in a tip instruction - Refer to Jito docs on how to estimate the tip amount based on percentiles - It has to be used together with a connection to a Jito RPC - [See their docs](https://docs.jito.wtf/) 
+  int32 jito_tip_lamports = 114093252;
+
+}
+
+message SwapRequestPrioritizationFeeLamportsPriorityLevelWithMaxLamports {
+
+  enum Priority_level {
+    PRIORITY_LEVEL_MEDIUM = 0;
+    PRIORITY_LEVEL_HIGH = 1;
+    PRIORITY_LEVEL_VERYHIGH = 2;
+  }
+
+  Priority_level priority_level = 306556201;
+
+  // - Maximum lamports to cap the priority fee estimation, to prevent overpaying 
+  int32 max_lamports = 138972684;
+
+}
+
+message SwapResponse {
+
+  string swap_transaction = 40795701;
+
+  int32 last_valid_block_height = 338311995;
+
+  int32 prioritization_fee_lamports = 447423236;
 
 }
 

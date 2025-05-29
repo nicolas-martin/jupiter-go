@@ -13,10 +13,7 @@ syntax = "proto3";
 package openapitools.services.swapservice;
 
 import "google/protobuf/empty.proto";
-import public "models/quote_response.proto";
-import public "models/swap_instructions_response.proto";
-import public "models/swap_request.proto";
-import public "models/swap_response.proto";
+import public "models/combined_models/proto.proto";
 
 service SwapService {
   rpc ProgramIdToLabelGet (google.protobuf.Empty) returns (ProgramIdToLabelGetResponse);
