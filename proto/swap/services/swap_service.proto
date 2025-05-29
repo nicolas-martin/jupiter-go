@@ -13,7 +13,7 @@ syntax = "proto3";
 package jupiter.swap.services.swapservice;
 
 import "google/protobuf/empty.proto";
-import public "models/combined_models/proto.proto";
+import public "swap/models/combined_models_proto.proto";
 
 service SwapService {
   rpc ProgramIdToLabelGet (google.protobuf.Empty) returns (ProgramIdToLabelGetResponse);
