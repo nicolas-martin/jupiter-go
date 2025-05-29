@@ -10,250 +10,251 @@
 
 syntax = "proto3";
 
-package openapitools;
+package jupiter.trigger;
 
+import public "google/protobuf/any.proto.proto";
 
 message CancelOrderPost200Response {
 
   // Required to make a request to `/execute`
-  string request_id = 37109963;
+  string request_id = 1;
 
   // Unsigned base-64 encoded transaction
-  string transaction = 530633441;
+  string transaction = 2;
 
 }
 
 message CancelOrderPostRequest {
 
-  string maker = 103659588;
+  string maker = 1;
 
-  string order = 106006350;
+  string order = 2;
 
   // In microlamports, defaults to 95th percentile of priority fees 
-  string compute_unit_price = 402714669;
+  string compute_unit_price = 3;
 
 }
 
 message CancelOrdersPost200Response {
 
   // Required to make a request to `/execute`
-  string request_id = 37109963;
+  string request_id = 1;
 
   // Array of unsigned base-64 encoded transaction(s)
-  repeated string transactions = 343509336;
+  repeated string transactions = 2;
 
 }
 
 message CancelOrdersPost400Response {
 
-  string error = 96784904;
+  string error = 1;
 
-  float code = 3059181;
+  float code = 2;
 
-  string cause = 94434409;
+  string cause = 3;
 
   // Signature of the transaction, if generated
-  string signature = 536713401;
+  string signature = 4;
 
   enum Status {
     STATUS_FAILED = 0;
   }
 
-  Status status = 355610639;
+  Status status = 5;
 
 }
 
 message CancelOrdersPost500Response {
 
-  string error = 96784904;
+  string error = 1;
 
-  float code = 3059181;
+  float code = 2;
 
-  string cause = 94434409;
+  string cause = 3;
 
   // Signature of the transaction, if generated
-  string signature = 536713401;
+  string signature = 4;
 
   enum Status {
     STATUS_FAILED = 0;
   }
 
-  Status status = 355610639;
+  Status status = 5;
 
 }
 
 message CancelOrdersRequestBody {
 
-  string maker = 103659588;
+  string maker = 1;
 
   // In microlamports, defaults to 95th percentile of priority fees 
-  string compute_unit_price = 402714669;
+  string compute_unit_price = 2;
 
   // Array of orders to cancel, if none is provided, the API will generate cancel instructions for all open orders belonging to the maker 
-  repeated string orders = 471899420;
+  repeated string orders = 3;
 
 }
 
 message CreateOrderPost200Response {
 
   // Required to make a request to `/execute`
-  string request_id = 37109963;
+  string request_id = 1;
 
   // Unsigned base-64 encoded transaction
-  string transaction = 530633441;
+  string transaction = 2;
 
   // Base-58 account which is the Trigger Order account
-  string order = 106006350;
+  string order = 3;
 
 }
 
 message CreateOrderPost400Response {
 
-  string error = 96784904;
+  string error = 1;
 
-  float code = 3059181;
+  float code = 2;
 
-  string cause = 94434409;
+  string cause = 3;
 
   // Signature of the transaction, if generated
-  string signature = 536713401;
+  string signature = 4;
 
   enum Status {
     STATUS_FAILED = 0;
   }
 
-  Status status = 355610639;
+  Status status = 5;
 
 }
 
 message CreateOrderPost500Response {
 
-  string error = 96784904;
+  string error = 1;
 
-  float code = 3059181;
+  float code = 2;
 
-  string cause = 94434409;
+  string cause = 3;
 
   // Signature of the transaction, if generated
-  string signature = 536713401;
+  string signature = 4;
 
   enum Status {
     STATUS_FAILED = 0;
   }
 
-  Status status = 355610639;
+  Status status = 5;
 
 }
 
 message CreateOrdersRequestBody {
 
-  string input_mint = 312726457;
+  string input_mint = 1;
 
-  string output_mint = 287752993;
+  string output_mint = 2;
 
-  string maker = 103659588;
+  string maker = 3;
 
-  string payer = 106443605;
+  string payer = 4;
 
-  CreateOrdersRequestBodyParams params = 458557051;
+  CreateOrdersRequestBodyParams params = 5;
 
   // In microlamports, defaults to 95th percentile of priority fees 
-  string compute_unit_price = 402714669;
+  string compute_unit_price = 6;
 
   // - A token account (via the Referral Program) that will receive the fees - Refer to [Referral Program Github](https://github.com/TeamRaccoons/referral/tree/main) for more information 
-  string fee_account = 427546231;
+  string fee_account = 7;
 
   // If either input or output mint is native SOL
-  bool wrap_and_unwrap_sol = 295318095;
+  bool wrap_and_unwrap_sol = 8;
 
 }
 
 message CreateOrdersRequestBodyParams {
 
   // Amount of input mint to swap
-  string making_amount = 201680918;
+  string making_amount = 1;
 
   // Amount of output mint to receive
-  string taking_amount = 428852596;
+  string taking_amount = 2;
 
-  string expired_at = 297387124;
+  string expired_at = 3;
 
   // Amount of slippage the order can be executed with 
-  string slippage_bps = 392701582;
+  string slippage_bps = 4;
 
   // Requires the `feeAccount` parameter, the amount of fees in bps that will be sent to the fee account 
-  string fee_bps = 439286357;
+  string fee_bps = 5;
 
 }
 
 message ExecutePost200Response {
 
-  float code = 3059181;
+  float code = 1;
 
   // Signature of the successful transaction
-  string signature = 536713401;
+  string signature = 2;
 
   enum Status {
     STATUS_SUCCESS = 0;
     STATUS_FAILED = 1;
   }
 
-  Status status = 355610639;
+  Status status = 3;
 
 }
 
 message ExecutePost400Response {
 
-  string error = 96784904;
+  string error = 1;
 
-  float code = 3059181;
+  float code = 2;
 
-  string cause = 94434409;
+  string cause = 3;
 
   // Signature of the transaction, if generated
-  string signature = 536713401;
+  string signature = 4;
 
   enum Status {
     STATUS_FAILED = 0;
   }
 
-  Status status = 355610639;
+  Status status = 5;
 
 }
 
 message ExecutePost500Response {
 
-  string error = 96784904;
+  string error = 1;
 
-  float code = 3059181;
+  float code = 2;
 
-  string cause = 94434409;
+  string cause = 3;
 
   // Signature of the transaction, if generated
-  string signature = 536713401;
+  string signature = 4;
 
   enum Status {
     STATUS_FAILED = 0;
   }
 
-  Status status = 355610639;
+  Status status = 5;
 
 }
 
 message ExecuteRequestBody {
 
   // Found in the response of `/createOrder` or `/cancelOrder`
-  string request_id = 37109963;
+  string request_id = 1;
 
   // The signed transaction to execute
-  string signed_transaction = 57202238;
+  string signed_transaction = 2;
 
 }
 
 message GetTriggerOrdersGet200Response {
 
   // The requested user's wallet public key
-  string user = 3599307;
+  string user = 1;
 
   // The status of the requested orders
   enum Order_status {
@@ -261,95 +262,95 @@ message GetTriggerOrdersGet200Response {
     ORDER_STATUS_HISTORY = 1;
   }
 
-  Order_status order_status = 504500740;
+  Order_status order_status = 2;
 
-  repeated GetTriggerOrdersGet200ResponseOrdersInner orders = 471899420;
+  repeated GetTriggerOrdersGet200ResponseOrdersInner orders = 3;
 
   // Total number of pages
-  float total_pages = 396186871;
+  float total_pages = 4;
 
-  float page = 3433103;
+  float page = 5;
 
 }
 
 message GetTriggerOrdersGet200ResponseOrdersInner {
 
-  string user_pubkey = 235473610;
+  string user_pubkey = 1;
 
-  string order_key = 391250450;
+  string order_key = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string making_amount = 201680918;
+  string making_amount = 5;
 
-  string taking_amount = 428852596;
+  string taking_amount = 6;
 
-  string remaining_making_amount = 20549279;
+  string remaining_making_amount = 7;
 
-  string remaining_taking_amount = 73113324;
+  string remaining_taking_amount = 8;
 
-  string raw_making_amount = 298796013;
+  string raw_making_amount = 9;
 
-  string raw_taking_amount = 331737501;
+  string raw_taking_amount = 10;
 
-  string raw_remaining_making_amount = 281004468;
+  string raw_remaining_making_amount = 11;
 
-  string raw_remaining_taking_amount = 349529046;
+  string raw_remaining_taking_amount = 12;
 
-  string slippage_bps = 392701582;
+  string slippage_bps = 13;
 
-  optional string expired_at = 297387124;
+  optional string expired_at = 14;
 
-  string created_at = 295938284;
+  string created_at = 15;
 
-  string updated_at = 295464393;
+  string updated_at = 16;
 
   // An open order with trades indicates that it has been partially filled 
-  string status = 355610639;
+  string status = 17;
 
-  string open_tx = 189452137;
+  string open_tx = 18;
 
-  string close_tx = 19083821;
+  string close_tx = 19;
 
-  string program_version = 140451357;
+  string program_version = 20;
 
-  repeated GetTriggerOrdersGet200ResponseOrdersInnerTradesInner trades = 328844402;
+  repeated GetTriggerOrdersGet200ResponseOrdersInnerTradesInner trades = 21;
 
 }
 
 message GetTriggerOrdersGet200ResponseOrdersInnerTradesInner {
 
-  string order_key = 391250450;
+  string order_key = 1;
 
-  string keeper = 61510928;
+  string keeper = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string input_amount = 79461998;
+  string input_amount = 5;
 
-  string output_amount = 154943833;
+  string output_amount = 6;
 
-  string raw_input_amount = 76329253;
+  string raw_input_amount = 7;
 
-  string raw_output_amount = 57828738;
+  string raw_output_amount = 8;
 
-  string fee_mint = 195783301;
+  string fee_mint = 9;
 
-  string fee_amount = 490987313;
+  string fee_amount = 10;
 
-  string raw_fee_amount = 434154584;
+  string raw_fee_amount = 11;
 
-  string tx_id = 110798006;
+  string tx_id = 12;
 
-  string confirmed_at = 491748630;
+  string confirmed_at = 13;
 
-  string action = 349209036;
+  string action = 14;
 
-  AnyType product_meta = 477478742;
+  google.protobuf.Any product_meta = 15;
 
 }
 

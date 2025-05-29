@@ -10,7 +10,7 @@
 
 syntax = "proto3";
 
-package openapitools.services.swapservice;
+package jupiter.swap.services.swapservice;
 
 import "google/protobuf/empty.proto";
 import public "models/combined_models/proto.proto";

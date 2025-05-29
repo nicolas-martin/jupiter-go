@@ -10,90 +10,91 @@
 
 syntax = "proto3";
 
-package openapitools;
+package jupiter.token;
 
+import public "google/protobuf/any.proto.proto";
 
 message Mint {
 
-  string address = 73950222;
+  string address = 1;
 
-  string created_at = 295938284;
+  string created_at = 2;
 
-  optional double daily_volume = 174872578;
+  optional double daily_volume = 3;
 
-  int32 decimals = 28661571;
+  int32 decimals = 4;
 
-  map<string, AnyType> extensions = 198808559;
+  map<string, google.protobuf.Any> extensions = 5;
 
-  optional string freeze_authority = 501339240;
+  optional string freeze_authority = 6;
 
-  optional string logo_uri = 417262811;
+  optional string logo_uri = 7;
 
-  optional string mint_authority = 464022619;
+  optional string mint_authority = 8;
 
-  optional string minted_at = 52196531;
+  optional string minted_at = 9;
 
-  string name = 3373707;
+  string name = 10;
 
-  optional string permanent_delegate = 462676493;
+  optional string permanent_delegate = 11;
 
-  string symbol = 350653033;
+  string symbol = 12;
 
-  repeated string tags = 3552281;
+  repeated string tags = 13;
 
 }
 
 message MintIncludingDuplicates {
 
-  string address = 73950222;
+  string address = 1;
 
-  string created_at = 295938284;
+  string created_at = 2;
 
-  optional double daily_volume = 174872578;
+  optional double daily_volume = 3;
 
-  int32 decimals = 28661571;
+  int32 decimals = 4;
 
-  map<string, AnyType> extensions = 198808559;
+  map<string, google.protobuf.Any> extensions = 5;
 
-  optional string freeze_authority = 501339240;
+  optional string freeze_authority = 6;
 
-  optional string logo_uri = 417262811;
+  optional string logo_uri = 7;
 
-  optional string mint_authority = 464022619;
+  optional string mint_authority = 8;
 
-  optional string minted_at = 52196531;
+  optional string minted_at = 9;
 
-  string name = 3373707;
+  string name = 10;
 
-  optional string permanent_delegate = 462676493;
+  optional string permanent_delegate = 11;
 
-  string symbol = 350653033;
+  string symbol = 12;
 
-  repeated string tags = 3552281;
+  repeated string tags = 13;
 
 }
 
 message MintWithCreationTimeAndMarkets {
 
-  string mint = 3351650;
+  string mint = 1;
 
-  string created_at = 295938284;
+  string created_at = 2;
 
-  string metadata_updated_at = 452935;
+  string metadata_updated_at = 3;
 
-  int32 decimals = 28661571;
+  int32 decimals = 4;
 
-  optional string freeze_authority = 501339240;
+  optional string freeze_authority = 5;
 
-  repeated string known_markets = 261936456;
+  repeated string known_markets = 6;
 
-  optional string logo_uri = 417262811;
+  optional string logo_uri = 7;
 
-  optional string mint_authority = 464022619;
+  optional string mint_authority = 8;
 
-  string name = 3373707;
+  string name = 9;
 
-  string symbol = 350653033;
+  string symbol = 10;
 
 }
 

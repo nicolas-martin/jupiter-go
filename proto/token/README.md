@@ -1,4 +1,4 @@
-# gPRC for openapitools
+# gPRC for jupiter.token
 
 | Link |
 | --- |
@@ -25,15 +25,15 @@ Below are some usage examples for Go and Ruby. For other languages, please refer
 ### Go
 ```
 # assuming `protoc-gen-go` has been installed with `go get -u github.com/golang/protobuf/protoc-gen-go`
-mkdir /var/tmp/go/openapitools
-protoc --go_out=/var/tmp/go/openapitools services/*
-protoc --go_out=/var/tmp/go/openapitools models/*
+mkdir /var/tmp/go/jupiter.token
+protoc --go_out=/var/tmp/go/jupiter.token services/*
+protoc --go_out=/var/tmp/go/jupiter.token models/*
 ```
 
 ### Ruby
 ```
 # assuming `grpc_tools_ruby_protoc` has been installed via `gem install grpc-tools`
-RUBY_OUTPUT_DIR="/var/tmp/ruby/openapitools"
+RUBY_OUTPUT_DIR="/var/tmp/ruby/jupiter.token"
 mkdir $RUBY_OUTPUT_DIR
 grpc_tools_ruby_protoc --ruby_out=$RUBY_OUTPUT_DIR --grpc_out=$RUBY_OUTPUT_DIR/lib services/*
 grpc_tools_ruby_protoc --ruby_out=$RUBY_OUTPUT_DIR --grpc_out=$RUBY_OUTPUT_DIR/lib models/*

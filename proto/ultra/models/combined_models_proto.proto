@@ -10,18 +10,18 @@
 
 syntax = "proto3";
 
-package openapitools;
+package jupiter.ultra;
 
 
 message BalancesAddressGet200ResponseValue {
 
-  string amount = 340111274;
+  string amount = 1;
 
-  float ui_amount = 338923423;
+  float ui_amount = 2;
 
-  float slot = 3533310;
+  float slot = 3;
 
-  bool is_frozen = 265175212;
+  bool is_frozen = 4;
 
 }
 
@@ -32,81 +32,81 @@ message ExecutePost200Response {
     STATUS_FAILED = 1;
   }
 
-  Status status = 355610639;
+  Status status = 1;
 
-  string signature = 536713401;
+  string signature = 2;
 
-  string slot = 3533310;
+  string slot = 3;
 
-  string error = 96784904;
+  string error = 4;
 
-  float code = 3059181;
+  float code = 5;
 
-  string total_input_amount = 518683529;
+  string total_input_amount = 6;
 
-  string total_output_amount = 187832424;
+  string total_output_amount = 7;
 
-  string input_amount_result = 394812882;
+  string input_amount_result = 8;
 
-  string output_amount_result = 386627369;
+  string output_amount_result = 9;
 
-  repeated ExecutePost200ResponseSwapEventsInner swap_events = 97087816;
+  repeated ExecutePost200ResponseSwapEventsInner swap_events = 10;
 
 }
 
 message ExecutePost200ResponseSwapEventsInner {
 
-  string input_mint = 312726457;
+  string input_mint = 1;
 
-  string input_amount = 79461998;
+  string input_amount = 2;
 
-  string output_mint = 287752993;
+  string output_mint = 3;
 
-  string output_amount = 154943833;
+  string output_amount = 4;
 
 }
 
 message ExecutePost400Response {
 
-  string error = 96784904;
+  string error = 1;
 
 }
 
 message ExecutePostRequest {
 
   // The signed transaction to execute
-  string signed_transaction = 57202238;
+  string signed_transaction = 1;
 
   // Found in response of `/order`
-  string request_id = 37109963;
+  string request_id = 2;
 
 }
 
 message OrderGet200Response {
 
-  string input_mint = 312726457;
+  string input_mint = 1;
 
-  string output_mint = 287752993;
+  string output_mint = 2;
 
-  string in_amount = 189264;
+  string in_amount = 3;
 
-  string out_amount = 240216681;
+  string out_amount = 4;
 
-  string other_amount_threshold = 471434902;
+  string other_amount_threshold = 5;
 
-  string swap_mode = 197991219;
+  string swap_mode = 6;
 
-  float slippage_bps = 392701582;
+  float slippage_bps = 7;
 
-  string price_impact_pct = 513816352;
+  string price_impact_pct = 8;
 
-  repeated OrderGet200ResponseRoutePlanInner route_plan = 375756640;
+  repeated OrderGet200ResponseRoutePlanInner route_plan = 9;
 
-  string fee_mint = 195783301;
+  string fee_mint = 10;
 
-  float fee_bps = 439286357;
+  float fee_bps = 11;
 
-  float prioritization_fee_lamports = 447423236;
+  float prioritization_fee_lamports = 12;
 
   enum Swap_type {
     SWAP_TYPE_AGGREGATOR = 0;
@@ -114,87 +114,87 @@ message OrderGet200Response {
     SWAP_TYPE_HASHFLOW = 2;
   }
 
-  Swap_type swap_type = 197772700;
+  Swap_type swap_type = 13;
 
   // Unsigned base-64 encoded transaction to be signed and used in `/execute`
-  optional string transaction = 530633441;
+  optional string transaction = 14;
 
-  bool gasless = 189850638;
+  bool gasless = 15;
 
   // Required to make a request to `/execute`
-  string request_id = 37109963;
+  string request_id = 16;
 
-  float total_time = 168518937;
+  float total_time = 17;
 
-  optional string taker = 110124235;
+  optional string taker = 18;
 
-  string quote_id = 342240835;
+  string quote_id = 19;
 
-  string maker = 103659588;
+  string maker = 20;
 
-  string expire_at = 250178387;
+  string expire_at = 21;
 
-  OrderGet200ResponsePlatformFee platform_fee = 155890106;
+  OrderGet200ResponsePlatformFee platform_fee = 22;
 
-  OrderGet200ResponseDynamicSlippageReport dynamic_slippage_report = 275376039;
+  OrderGet200ResponseDynamicSlippageReport dynamic_slippage_report = 23;
 
 }
 
 message OrderGet200ResponseDynamicSlippageReport {
 
-  optional string amplification_ratio = 343258818;
+  optional string amplification_ratio = 1;
 
-  optional float other_amount = 435010663;
+  optional float other_amount = 2;
 
-  optional float simulated_incurred_slippage_bps = 153582820;
+  optional float simulated_incurred_slippage_bps = 3;
 
-  float slippage_bps = 392701582;
+  float slippage_bps = 4;
 
-  string category_name = 338683180;
+  string category_name = 5;
 
-  float heuristic_max_slippage_bps = 432805126;
+  float heuristic_max_slippage_bps = 6;
 
 }
 
 message OrderGet200ResponsePlatformFee {
 
-  string amount = 340111274;
+  string amount = 1;
 
-  float fee_bps = 439286357;
+  float fee_bps = 2;
 
 }
 
 message OrderGet200ResponseRoutePlanInner {
 
-  OrderGet200ResponseRoutePlanInnerSwapInfo swap_info = 198111272;
+  OrderGet200ResponseRoutePlanInnerSwapInfo swap_info = 1;
 
-  float percent = 142056380;
+  float percent = 2;
 
 }
 
 message OrderGet200ResponseRoutePlanInnerSwapInfo {
 
-  string amm_key = 345407776;
+  string amm_key = 1;
 
-  string label = 102727412;
+  string label = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string in_amount = 189264;
+  string in_amount = 5;
 
-  string out_amount = 240216681;
+  string out_amount = 6;
 
-  string fee_amount = 490987313;
+  string fee_amount = 7;
 
-  string fee_mint = 195783301;
+  string fee_mint = 8;
 
 }
 
 message OrderRoutersGet200ResponseInner {
 
-  string id = 3355;
+  string id = 1;
 
   enum Name {
     NAME_METIS_V1_6 = 0;
@@ -205,29 +205,29 @@ message OrderRoutersGet200ResponseInner {
     NAME_OKX_DEX_ROUTER = 5;
   }
 
-  Name name = 3373707;
+  Name name = 2;
 
-  string icon = 3226745;
+  string icon = 3;
 
 }
 
 message ShieldGet200Response {
 
-  map<string, ShieldGet200ResponseWarningsValueInnerArray> warnings = 498091095;
+  map<string, ShieldGet200ResponseWarningsValueInnerArray> warnings = 1;
 
 }
 
 message ShieldGet200ResponseWarningsValueInner {
 
-  string type = 3575610;
+  string type = 1;
 
-  string message = 418054152;
+  string message = 2;
 
 }
 
 message ShieldGet200ResponseWarningsValueInnerArray {
 
-  repeated ShieldGet200ResponseWarningsValueInner shield_get_200_response_warnings_value_inner_array = 53076588;
+  repeated ShieldGet200ResponseWarningsValueInner shield_get_200_response_warnings_value_inner_array = 1;
 
 }
 

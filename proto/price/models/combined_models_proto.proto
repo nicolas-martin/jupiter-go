@@ -10,22 +10,22 @@
 
 syntax = "proto3";
 
-package openapitools;
+package jupiter.price;
 
 
 message Depth {
 
-  PriceImpactRatio buy_price_impact_ratio = 106723683;
+  PriceImpactRatio buy_price_impact_ratio = 1;
 
-  PriceImpactRatio sell_price_impact_ratio = 107152107;
+  PriceImpactRatio sell_price_impact_ratio = 2;
 
 }
 
 message ExtraInfo {
 
-  LastSwappedPrice last_swapped_price = 359356422;
+  LastSwappedPrice last_swapped_price = 1;
 
-  QuotedPrice quoted_price = 83101775;
+  QuotedPrice quoted_price = 2;
 
   enum Confidence_level {
     CONFIDENCE_LEVEL_HIGH = 0;
@@ -33,71 +33,71 @@ message ExtraInfo {
     CONFIDENCE_LEVEL_LOW = 2;
   }
 
-  Confidence_level confidence_level = 29937042;
+  Confidence_level confidence_level = 3;
 
-  Depth depth = 95472323;
+  Depth depth = 4;
 
 }
 
 message LastSwappedPrice {
 
-  int64 last_jupiter_sell_at = 124586869;
+  int64 last_jupiter_sell_at = 1;
 
-  string last_jupiter_sell_price = 192697032;
+  string last_jupiter_sell_price = 2;
 
-  int64 last_jupiter_buy_at = 484843850;
+  int64 last_jupiter_buy_at = 3;
 
-  string last_jupiter_buy_price = 5808198;
+  string last_jupiter_buy_price = 4;
 
 }
 
 message PriceImpactRatio {
 
-  PriceImpactRatioDepth depth = 95472323;
+  PriceImpactRatioDepth depth = 1;
 
-  int64 timestamp = 55126294;
+  int64 timestamp = 2;
 
 }
 
 message PriceImpactRatioDepth {
 
-  float depth10 = 480848932;
+  float depth10 = 1;
 
-  float depth100 = 410802255;
+  float depth100 = 2;
 
-  float depth1000 = 150031967;
+  float depth1000 = 3;
 
 }
 
 message PriceResponse {
 
-  map<string, TokenPriceInfo> data = 3076010;
+  map<string, TokenPriceInfo> data = 1;
 
-  float time_taken = 62588119;
+  float time_taken = 2;
 
 }
 
 message QuotedPrice {
 
-  string buy_price = 446032304;
+  string buy_price = 1;
 
-  int64 buy_at = 303817590;
+  int64 buy_at = 2;
 
-  string sell_price = 144285212;
+  string sell_price = 3;
 
-  int64 sell_at = 367691843;
+  int64 sell_at = 4;
 
 }
 
 message TokenPriceInfo {
 
-  string id = 3355;
+  string id = 1;
 
-  string type = 3575610;
+  string type = 2;
 
-  string price = 106934601;
+  string price = 3;
 
-  ExtraInfo extra_info = 210670462;
+  ExtraInfo extra_info = 4;
 
 }
 

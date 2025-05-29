@@ -1,0 +1,22 @@
+version: v1
+plugins:
+  - plugin: buf.build/protocolbuffers/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+      - Mproto/ultra/models/combined_models_proto.proto=github.com/jupiter-go/gen/go/ultra
+      - Mproto/swap/models/combined_models_proto.proto=github.com/jupiter-go/gen/go/swap
+      - Mproto/trigger/models/combined_models_proto.proto=github.com/jupiter-go/gen/go/trigger
+      - Mproto/price/models/combined_models_proto.proto=github.com/jupiter-go/gen/go/price
+      - Mproto/token/models/combined_models_proto.proto=github.com/jupiter-go/gen/go/token
+      - Mproto/recurring/models/combined_models_proto.proto=github.com/jupiter-go/gen/go/recurring
+  - plugin: buf.build/grpc/go
+    out: gen/go
+    opt:
+      - paths=source_relative
+  - plugin: buf.build/protocolbuffers/js
+    out: gen/js
+    opt:
+      - import_style=commonjs
+  - plugin: buf.build/protocolbuffers/python
+    out: gen/python 

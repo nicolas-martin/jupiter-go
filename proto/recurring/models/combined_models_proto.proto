@@ -10,159 +10,159 @@
 
 syntax = "proto3";
 
-package openapitools;
+package jupiter.recurring;
 
 
 message AllRecurringResponse {
 
     oneof all_recurring_response {
-        AllRecurringResponseOneOf all_recurring_response_one_of = 371307921;
-        AllRecurringResponseOneOf1 all_recurring_response_one_of1 = 236256357;
+        AllRecurringResponseOneOf all_recurring_response_one_of = 1;
+        AllRecurringResponseOneOf1 all_recurring_response_one_of1 = 2;
     }
 }
 
 message AllRecurringResponseOneOf {
 
-  string user_pubkey = 235473610;
+  string user_pubkey = 1;
 
-  string order_key = 391250450;
+  string order_key = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string in_deposited = 123825888;
+  string in_deposited = 5;
 
-  string in_withdrawn = 979978;
+  string in_withdrawn = 6;
 
-  string raw_in_deposited = 126958633;
+  string raw_in_deposited = 7;
 
-  string raw_in_withdrawn = 2152767;
+  string raw_in_withdrawn = 8;
 
-  string cycle_frequency = 513454405;
+  string cycle_frequency = 9;
 
-  string out_withdrawn = 76461813;
+  string out_withdrawn = 10;
 
-  string in_amount_per_cycle = 375061513;
+  string in_amount_per_cycle = 11;
 
-  string raw_in_amount_per_cycle = 57694882;
+  string raw_in_amount_per_cycle = 12;
 
-  string min_out_amount = 55487885;
+  string min_out_amount = 13;
 
-  string raw_min_out_amount = 381701267;
+  string raw_min_out_amount = 14;
 
-  string max_out_amount = 361337895;
+  string max_out_amount = 15;
 
-  string raw_max_out_amount = 501746406;
+  string raw_max_out_amount = 16;
 
-  string in_used = 328533658;
+  string in_used = 17;
 
-  string raw_in_used = 375407233;
+  string raw_in_used = 18;
 
-  string out_received = 385563726;
+  string out_received = 19;
 
-  string raw_out_received = 388696471;
+  string raw_out_received = 20;
 
-  string open_tx = 189452137;
+  string open_tx = 21;
 
-  string close_tx = 19083821;
+  string close_tx = 22;
 
-  bool user_closed = 78698401;
+  bool user_closed = 23;
 
-  string created_at = 295938284;
+  string created_at = 24;
 
-  string updated_at = 295464393;
+  string updated_at = 25;
 
-  repeated OrderHistoryResponse trades = 328844402;
+  repeated OrderHistoryResponse trades = 26;
 
   enum Recurring_type {
     RECURRING_TYPE_TIME = 0;
   }
 
-  Recurring_type recurring_type = 279372967;
+  Recurring_type recurring_type = 27;
 
 }
 
 message AllRecurringResponseOneOf1 {
 
-  string user_pubkey = 235473610;
+  string user_pubkey = 1;
 
-  string order_key = 391250450;
+  string order_key = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string in_deposited = 123825888;
+  string in_deposited = 5;
 
-  string in_withdrawn = 979978;
+  string in_withdrawn = 6;
 
-  string in_left = 328252132;
+  string in_left = 7;
 
-  string in_used = 328533658;
+  string in_used = 8;
 
-  string out_received = 385563726;
+  string out_received = 9;
 
-  string out_withdrawn = 76461813;
+  string out_withdrawn = 10;
 
-  string order_interval = 180623723;
+  string order_interval = 11;
 
-  string incremental_usd_value = 414181205;
+  string incremental_usd_value = 12;
 
-  string supposed_usd_value = 120325603;
+  string supposed_usd_value = 13;
 
-  string estimated_usdc_value_spent = 15533346;
+  string estimated_usdc_value_spent = 14;
 
-  string raw_in_deposited = 126958633;
+  string raw_in_deposited = 15;
 
-  string raw_in_withdrawn = 2152767;
+  string raw_in_withdrawn = 16;
 
-  string raw_in_left = 375688759;
+  string raw_in_left = 17;
 
-  string raw_in_used = 375407233;
+  string raw_in_used = 18;
 
-  string raw_out_received = 388696471;
+  string raw_out_received = 19;
 
-  string raw_out_withdrawn = 516217629;
+  string raw_out_withdrawn = 20;
 
-  string raw_incremental_usd_value = 460837500;
+  string raw_incremental_usd_value = 21;
 
-  string raw_supposed_usd_value = 456456302;
+  string raw_supposed_usd_value = 22;
 
-  string raw_estimated_usdc_value_spent = 190229402;
+  string raw_estimated_usdc_value_spent = 23;
 
-  string status = 355610639;
+  string status = 24;
 
-  string closed_by = 482015222;
+  string closed_by = 25;
 
-  string open_tx = 189452137;
+  string open_tx = 26;
 
-  string close_tx = 19083821;
+  string close_tx = 27;
 
-  string created_at = 295938284;
+  string created_at = 28;
 
-  string start_at = 243054898;
+  string start_at = 29;
 
-  string updated_at = 295464393;
+  string updated_at = 30;
 
-  repeated OrderHistoryResponse trades = 328844402;
+  repeated OrderHistoryResponse trades = 31;
 
   enum Recurring_type {
     RECURRING_TYPE_PRICE = 0;
   }
 
-  Recurring_type recurring_type = 279372967;
+  Recurring_type recurring_type = 32;
 
 }
 
 message CloseRecurring {
 
-  string user = 3599307;
+  string user = 1;
 
   // Base-58 account of the Recurring Order
-  string order = 106006350;
+  string order = 2;
 
-  CloseRecurringType recurring_type = 279372967;
+  CloseRecurringType recurring_type = 3;
 
 }
 
@@ -173,146 +173,146 @@ enum CloseRecurringType {
 
 message CreateRecurring {
 
-  string user = 3599307;
+  string user = 1;
 
-  string input_mint = 312726457;
+  string input_mint = 2;
 
-  string output_mint = 287752993;
+  string output_mint = 3;
 
-  RecurringType params = 458557051;
+  RecurringType params = 4;
 
 }
 
 message DepositPriceRecurring {
 
-  string user = 3599307;
+  string user = 1;
 
   // Base-58 account of the Recurring Order
-  string order = 106006350;
+  string order = 2;
 
-  optional int64 amount = 340111274;
+  optional int64 amount = 3;
 
 }
 
 message ExecuteRecurring {
 
-  string request_id = 37109963;
+  string request_id = 1;
 
-  string signed_transaction = 57202238;
+  string signed_transaction = 2;
 
 }
 
 message ExecuteRecurringResponse {
 
-  string signature = 536713401;
+  string signature = 1;
 
   enum Status {
     STATUS_SUCCESS = 0;
     STATUS_FAILED = 1;
   }
 
-  Status status = 355610639;
+  Status status = 2;
 
-  optional string error = 96784904;
+  optional string error = 3;
 
-  optional string order = 106006350;
+  optional string order = 4;
 
 }
 
 message GetRecurringOrderResponse {
 
     oneof get_recurring_order_response {
-        GetRecurringOrderResponseOneOf get_recurring_order_response_one_of = 251520945;
-        GetRecurringOrderResponseOneOf1 get_recurring_order_response_one_of1 = 280956388;
-        GetRecurringOrderResponseOneOf2 get_recurring_order_response_one_of2 = 280956387;
+        GetRecurringOrderResponseOneOf get_recurring_order_response_one_of = 1;
+        GetRecurringOrderResponseOneOf1 get_recurring_order_response_one_of1 = 2;
+        GetRecurringOrderResponseOneOf2 get_recurring_order_response_one_of2 = 3;
     }
 }
 
 message GetRecurringOrderResponseOneOf {
 
-  string user = 3599307;
+  string user = 1;
 
-  OrderState order_status = 504500740;
+  OrderState order_status = 2;
 
-  int64 page = 3433103;
+  int64 page = 3;
 
-  repeated TimeRecurringResponse time = 3560141;
+  repeated TimeRecurringResponse time = 4;
 
-  int64 total_pages = 396186871;
+  int64 total_pages = 5;
 
 }
 
 message GetRecurringOrderResponseOneOf1 {
 
-  string user = 3599307;
+  string user = 1;
 
-  OrderState order_status = 504500740;
+  OrderState order_status = 2;
 
-  int64 page = 3433103;
+  int64 page = 3;
 
-  repeated PriceRecurringResponse price = 106934601;
+  repeated PriceRecurringResponse price = 4;
 
-  int64 total_pages = 396186871;
+  int64 total_pages = 5;
 
 }
 
 message GetRecurringOrderResponseOneOf2 {
 
-  string user = 3599307;
+  string user = 1;
 
-  OrderState order_status = 504500740;
+  OrderState order_status = 2;
 
-  int64 page = 3433103;
+  int64 page = 3;
 
-  repeated AllRecurringResponse all = 96673;
+  repeated AllRecurringResponse all = 4;
 
-  int64 total_pages = 396186871;
+  int64 total_pages = 5;
 
 }
 
 message OpenIxArgsWithoutIdx {
 
   // In unix seconds
-  int64 interval = 33547462;
+  int64 interval = 1;
 
-  int64 deposit_amount = 225978650;
+  int64 deposit_amount = 2;
 
-  int64 increment_usdc_value = 102787810;
+  int64 increment_usdc_value = 3;
 
   // In unix timestamp
-  optional int64 start_at = 243054898;
+  optional int64 start_at = 4;
 
 }
 
 message OrderHistoryResponse {
 
-  string order_key = 391250450;
+  string order_key = 1;
 
-  string keeper = 61510928;
+  string keeper = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string input_amount = 79461998;
+  string input_amount = 5;
 
-  string output_amount = 154943833;
+  string output_amount = 6;
 
-  string raw_input_amount = 76329253;
+  string raw_input_amount = 7;
 
-  string raw_output_amount = 57828738;
+  string raw_output_amount = 8;
 
-  string fee_mint = 195783301;
+  string fee_mint = 9;
 
-  string fee_amount = 490987313;
+  string fee_amount = 10;
 
-  string raw_fee_amount = 434154584;
+  string raw_fee_amount = 11;
 
-  string tx_id = 110798006;
+  string tx_id = 12;
 
-  string confirmed_at = 491748630;
+  string confirmed_at = 13;
 
-  string action = 349209036;
+  string action = 14;
 
 }
 
@@ -323,67 +323,67 @@ enum OrderState {
 
 message PriceRecurringResponse {
 
-  string user_pubkey = 235473610;
+  string user_pubkey = 1;
 
-  string order_key = 391250450;
+  string order_key = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string in_deposited = 123825888;
+  string in_deposited = 5;
 
-  string in_withdrawn = 979978;
+  string in_withdrawn = 6;
 
-  string in_left = 328252132;
+  string in_left = 7;
 
-  string in_used = 328533658;
+  string in_used = 8;
 
-  string out_received = 385563726;
+  string out_received = 9;
 
-  string out_withdrawn = 76461813;
+  string out_withdrawn = 10;
 
-  string order_interval = 180623723;
+  string order_interval = 11;
 
-  string incremental_usd_value = 414181205;
+  string incremental_usd_value = 12;
 
-  string supposed_usd_value = 120325603;
+  string supposed_usd_value = 13;
 
-  string estimated_usdc_value_spent = 15533346;
+  string estimated_usdc_value_spent = 14;
 
-  string raw_in_deposited = 126958633;
+  string raw_in_deposited = 15;
 
-  string raw_in_withdrawn = 2152767;
+  string raw_in_withdrawn = 16;
 
-  string raw_in_left = 375688759;
+  string raw_in_left = 17;
 
-  string raw_in_used = 375407233;
+  string raw_in_used = 18;
 
-  string raw_out_received = 388696471;
+  string raw_out_received = 19;
 
-  string raw_out_withdrawn = 516217629;
+  string raw_out_withdrawn = 20;
 
-  string raw_incremental_usd_value = 460837500;
+  string raw_incremental_usd_value = 21;
 
-  string raw_supposed_usd_value = 456456302;
+  string raw_supposed_usd_value = 22;
 
-  string raw_estimated_usdc_value_spent = 190229402;
+  string raw_estimated_usdc_value_spent = 23;
 
-  string status = 355610639;
+  string status = 24;
 
-  string closed_by = 482015222;
+  string closed_by = 25;
 
-  string open_tx = 189452137;
+  string open_tx = 26;
 
-  string close_tx = 19083821;
+  string close_tx = 27;
 
-  string created_at = 295938284;
+  string created_at = 28;
 
-  string start_at = 243054898;
+  string start_at = 29;
 
-  string updated_at = 295464393;
+  string updated_at = 30;
 
-  repeated OrderHistoryResponse trades = 328844402;
+  repeated OrderHistoryResponse trades = 31;
 
 }
 
@@ -395,116 +395,116 @@ enum RecurringOrderType {
 
 message RecurringResponse {
 
-  string request_id = 37109963;
+  string request_id = 1;
 
-  string transaction = 530633441;
+  string transaction = 2;
 
 }
 
 message RecurringType {
 
     oneof recurring_type {
-        RecurringTypeOneOf recurring_type_one_of = 465173359;
-        RecurringTypeOneOf1 recurring_type_one_of1 = 461730306;
+        RecurringTypeOneOf recurring_type_one_of = 1;
+        RecurringTypeOneOf1 recurring_type_one_of1 = 2;
     }
 }
 
 message RecurringTypeOneOf {
 
-  TimeRecurringCreationParams time = 3560141;
+  TimeRecurringCreationParams time = 1;
 
 }
 
 message RecurringTypeOneOf1 {
 
-  OpenIxArgsWithoutIdx price = 106934601;
+  OpenIxArgsWithoutIdx price = 1;
 
 }
 
 message TimeRecurringCreationParams {
 
-  int64 in_amount = 189264;
+  int64 in_amount = 1;
 
   // In unix seconds
-  int64 interval = 33547462;
+  int64 interval = 2;
 
-  int64 number_of_orders = 395415340;
+  int64 number_of_orders = 3;
 
-  optional double max_price = 237166930;
+  optional double max_price = 4;
 
-  optional double min_price = 535311644;
+  optional double min_price = 5;
 
   // In unix timestamp
-  optional int64 start_at = 243054898;
+  optional int64 start_at = 6;
 
 }
 
 message TimeRecurringResponse {
 
-  string user_pubkey = 235473610;
+  string user_pubkey = 1;
 
-  string order_key = 391250450;
+  string order_key = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string in_deposited = 123825888;
+  string in_deposited = 5;
 
-  string in_withdrawn = 979978;
+  string in_withdrawn = 6;
 
-  string raw_in_deposited = 126958633;
+  string raw_in_deposited = 7;
 
-  string raw_in_withdrawn = 2152767;
+  string raw_in_withdrawn = 8;
 
-  string cycle_frequency = 513454405;
+  string cycle_frequency = 9;
 
-  string out_withdrawn = 76461813;
+  string out_withdrawn = 10;
 
-  string in_amount_per_cycle = 375061513;
+  string in_amount_per_cycle = 11;
 
-  string raw_in_amount_per_cycle = 57694882;
+  string raw_in_amount_per_cycle = 12;
 
-  string min_out_amount = 55487885;
+  string min_out_amount = 13;
 
-  string raw_min_out_amount = 381701267;
+  string raw_min_out_amount = 14;
 
-  string max_out_amount = 361337895;
+  string max_out_amount = 15;
 
-  string raw_max_out_amount = 501746406;
+  string raw_max_out_amount = 16;
 
-  string in_used = 328533658;
+  string in_used = 17;
 
-  string raw_in_used = 375407233;
+  string raw_in_used = 18;
 
-  string out_received = 385563726;
+  string out_received = 19;
 
-  string raw_out_received = 388696471;
+  string raw_out_received = 20;
 
-  string open_tx = 189452137;
+  string open_tx = 21;
 
-  string close_tx = 19083821;
+  string close_tx = 22;
 
-  bool user_closed = 78698401;
+  bool user_closed = 23;
 
-  string created_at = 295938284;
+  string created_at = 24;
 
-  string updated_at = 295464393;
+  string updated_at = 25;
 
-  repeated OrderHistoryResponse trades = 328844402;
+  repeated OrderHistoryResponse trades = 26;
 
 }
 
 message WithdrawPriceRecurring {
 
-  string user = 3599307;
+  string user = 1;
 
   // Base-58 account of the Recurring Order
-  string order = 106006350;
+  string order = 2;
 
-  optional int64 amount = 340111274;
+  optional int64 amount = 3;
 
-  Withdrawal input_or_output = 165424985;
+  Withdrawal input_or_output = 4;
 
 }
 

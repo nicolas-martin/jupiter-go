@@ -10,128 +10,128 @@
 
 syntax = "proto3";
 
-package openapitools;
+package jupiter.swap;
 
 
 message AccountMeta {
 
-  string pubkey = 440553919;
+  string pubkey = 1;
 
-  bool is_signer = 438428705;
+  bool is_signer = 2;
 
-  bool is_writable = 102737688;
+  bool is_writable = 3;
 
 }
 
 message FloatArray {
 
-  repeated float float_array = 401292620;
+  repeated float float_array = 1;
 
 }
 
 message IndexedRouteMapResponse {
 
   // All the mints that are indexed to match in indexedRouteMap
-  repeated string mint_keys = 46870451;
+  repeated string mint_keys = 1;
 
   // All the possible route and their corresponding output mints
-  map<string, FloatArray> indexed_route_map = 374684520;
+  map<string, FloatArray> indexed_route_map = 2;
 
 }
 
 message Instruction {
 
-  string program_id = 32609462;
+  string program_id = 1;
 
-  repeated AccountMeta accounts = 526533661;
+  repeated AccountMeta accounts = 2;
 
-  string data = 3076010;
+  string data = 3;
 
 }
 
 message PlatformFee {
 
-  string amount = 340111274;
+  string amount = 1;
 
-  int32 fee_bps = 439286357;
+  int32 fee_bps = 2;
 
 }
 
 message QuoteResponse {
 
-  string input_mint = 312726457;
+  string input_mint = 1;
 
-  string in_amount = 189264;
+  string in_amount = 2;
 
-  string output_mint = 287752993;
+  string output_mint = 3;
 
   // - Calculated output amount from routing engine - The value includes platform fees and DEX fees, excluding slippage 
-  string out_amount = 240216681;
+  string out_amount = 4;
 
   // - Calculated minimum output amount after accounting for `slippageBps` on the `outAmount` value - Not used by `/swap` endpoint to build transaction 
-  string other_amount_threshold = 471434902;
+  string other_amount_threshold = 5;
 
-  SwapMode swap_mode = 197991219;
+  SwapMode swap_mode = 6;
 
-  int32 slippage_bps = 392701582;
+  int32 slippage_bps = 7;
 
-  PlatformFee platform_fee = 155890106;
+  PlatformFee platform_fee = 8;
 
-  string price_impact_pct = 513816352;
+  string price_impact_pct = 9;
 
-  repeated RoutePlanStep route_plan = 375756640;
+  repeated RoutePlanStep route_plan = 10;
 
-  float context_slot = 43164304;
+  float context_slot = 11;
 
-  float time_taken = 62588119;
+  float time_taken = 12;
 
 }
 
 message RoutePlanStep {
 
-  SwapInfo swap_info = 198111272;
+  SwapInfo swap_info = 1;
 
-  int32 percent = 142056380;
+  int32 percent = 2;
 
 }
 
 message SwapInfo {
 
-  string amm_key = 345407776;
+  string amm_key = 1;
 
-  string label = 102727412;
+  string label = 2;
 
-  string input_mint = 312726457;
+  string input_mint = 3;
 
-  string output_mint = 287752993;
+  string output_mint = 4;
 
-  string in_amount = 189264;
+  string in_amount = 5;
 
-  string out_amount = 240216681;
+  string out_amount = 6;
 
-  string fee_amount = 490987313;
+  string fee_amount = 7;
 
-  string fee_mint = 195783301;
+  string fee_mint = 8;
 
 }
 
 message SwapInstructionsResponse {
 
   // - If you set `{\\\"prioritizationFeeLamports\\\": {\\\"jitoTipLamports\\\": 5000}}`, you will see a custom tip instruction to Jito here. 
-  repeated Instruction other_instructions = 60066421;
+  repeated Instruction other_instructions = 1;
 
   // - To setup the compute budget for the transaction. 
-  repeated Instruction compute_budget_instructions = 45880236;
+  repeated Instruction compute_budget_instructions = 2;
 
   // - To setup required token accounts for the users. 
-  repeated Instruction setup_instructions = 390494169;
+  repeated Instruction setup_instructions = 3;
 
-  Instruction swap_instruction = 188311582;
+  Instruction swap_instruction = 4;
 
-  Instruction cleanup_instruction = 23737486;
+  Instruction cleanup_instruction = 5;
 
   // - The lookup table addresses if you are using versioned transaction. 
-  repeated string address_lookup_table_addresses = 78076843;
+  repeated string address_lookup_table_addresses = 6;
 
 }
 
@@ -142,53 +142,53 @@ enum SwapMode {
 
 message SwapRequest {
 
-  string user_public_key = 518139780;
+  string user_public_key = 1;
 
   // - To automatically wrap/unwrap SOL in the transaction, as WSOL is an SPL token while native SOL is not - When true, it will strictly use SOL amount to wrap it to swap, and each time after you swap, it will unwrap all WSOL back to SOL - When false, it will strictly use WSOL amount to swap, and each time after you swap, it will not unwrap the WSOL back to SOL - To set this parameter to false, you need to have the WSOL token account initialized - Parameter will be ignored if `destinationTokenAccount` is set because the `destinationTokenAccount` may belong to a different user that we have no authority to close 
-  bool wrap_and_unwrap_sol = 295318095;
+  bool wrap_and_unwrap_sol = 2;
 
   // - The default is determined dynamically by the routing engine, allowing us to optimize for compute units, etc - This enables the usage of shared program accounts, this is essential as complex routing will require multiple intermediate token accounts which the user might not have - If true, you do not need to handle the creation of intermediate token accounts for the user - Do note, shared accounts route will fail on some new AMMs (low liquidity token) 
-  bool use_shared_accounts = 300322763;
+  bool use_shared_accounts = 3;
 
   // - An token account that will be used to collect fees - The mint of the token account **can only be either the input or output mint of the swap** - You no longer are required to use the Referral Program - See [Add Fees](/docs/swap-api/add-fees-to-swap) guide for more details 
-  string fee_account = 427546231;
+  string fee_account = 4;
 
   // - Specify any public key that belongs to you to track the transactions - Useful for integrators to get all the swap transactions from this public key - Query the data using a block explorer like Solscan/SolanaFM or query like Dune/Flipside 
-  string tracking_account = 436906150;
+  string tracking_account = 5;
 
-  SwapRequestPrioritizationFeeLamports prioritization_fee_lamports = 447423236;
+  SwapRequestPrioritizationFeeLamports prioritization_fee_lamports = 6;
 
   // - Builds a legacy transaction rather than the default versioned transaction - Used together with `asLegacyTransaction` in `/quote`, otherwise the transaction might be too large 
-  bool as_legacy_transaction = 59136150;
+  bool as_legacy_transaction = 7;
 
   // - Public key of a token account that will be used to receive the token out of the swap - If not provided, the signer's token account will be used - If provided, we assume that the token account is already initialized 
-  string destination_token_account = 495830904;
+  string destination_token_account = 8;
 
   // - When enabled, it will do a swap simulation to get the compute unit used and set it in ComputeBudget's compute unit limit - This incurs one extra RPC call to simulate this - We recommend to enable this to estimate compute unit correctly and reduce priority fees needed or have higher chance to be included in a block 
-  bool dynamic_compute_unit_limit = 409948747;
+  bool dynamic_compute_unit_limit = 9;
 
   // - When enabled, it will not do any additional RPC calls to check on required accounts - Enable it only when you already setup all the accounts needed for the trasaction, like wrapping or unwrapping sol, or destination account is already created 
-  bool skip_user_accounts_rpc_calls = 393237527;
+  bool skip_user_accounts_rpc_calls = 10;
 
   // - When enabled, it estimates slippage and apply it in the swap transaction directly, overwriting the `slippageBps` parameter in the quote response. - Used together with `dynamicSlippage` in `/quote`, otherwise the slippage used will be the one in the `/quote`'s `slippageBps` - [See notes for more information](/docs/swap-api/send-swap-transaction#how-jupiter-estimates-slippage) 
-  bool dynamic_slippage = 307080244;
+  bool dynamic_slippage = 11;
 
   // - To use an exact compute unit price to calculate priority fee - `computeUnitLimit (1400000) * computeUnitPriceMicroLamports` - We recommend using `prioritizationFeeLamports` and `dynamicComputeUnitLimit` instead of passing in your own compute unit price 
-  int32 compute_unit_price_micro_lamports = 452240354;
+  int32 compute_unit_price_micro_lamports = 12;
 
   // - Pass in the number of slots we want the transaction to be valid for - Example: If you pass in 10 slots, the transaction will be valid for ~400ms * 10 = approximately 4 seconds before it expires 
-  int32 blockhash_slots_to_expiry = 168639288;
+  int32 blockhash_slots_to_expiry = 13;
 
-  QuoteResponse quote_response = 192572765;
+  QuoteResponse quote_response = 14;
 
 }
 
 message SwapRequestPrioritizationFeeLamports {
 
-  SwapRequestPrioritizationFeeLamportsPriorityLevelWithMaxLamports priority_level_with_max_lamports = 383247561;
+  SwapRequestPrioritizationFeeLamportsPriorityLevelWithMaxLamports priority_level_with_max_lamports = 1;
 
   // - Exact amount of tip to use in a tip instruction - Refer to Jito docs on how to estimate the tip amount based on percentiles - It has to be used together with a connection to a Jito RPC - [See their docs](https://docs.jito.wtf/) 
-  int32 jito_tip_lamports = 114093252;
+  int32 jito_tip_lamports = 2;
 
 }
 
@@ -200,20 +200,20 @@ message SwapRequestPrioritizationFeeLamportsPriorityLevelWithMaxLamports {
     PRIORITY_LEVEL_VERYHIGH = 2;
   }
 
-  Priority_level priority_level = 306556201;
+  Priority_level priority_level = 1;
 
   // - Maximum lamports to cap the priority fee estimation, to prevent overpaying 
-  int32 max_lamports = 138972684;
+  int32 max_lamports = 2;
 
 }
 
 message SwapResponse {
 
-  string swap_transaction = 40795701;
+  string swap_transaction = 1;
 
-  int32 last_valid_block_height = 338311995;
+  int32 last_valid_block_height = 2;
 
-  int32 prioritization_fee_lamports = 447423236;
+  int32 prioritization_fee_lamports = 3;
 
 }
 
