@@ -16,7 +16,7 @@ servers:
     description: Paid tier API endpoint with higher rate limits to be used with an API Key
 
 paths:
-  "":
+  /:
     get:
       summary: price
       description: |
@@ -138,13 +138,13 @@ components:
         depth:
           type: object
           properties:
-            "10":
+            "depth10":
               type: number
               format: float
-            "100":
+            "depth100":
               type: number
               format: float
-            "1000":
+            "depth1000":
               type: number
               format: float
         timestamp:

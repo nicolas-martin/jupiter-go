@@ -1,0 +1,11 @@
+.openapi-generator-ignore
+README.md
+models/depth.proto
+models/extra_info.proto
+models/last_swapped_price.proto
+models/price_impact_ratio.proto
+models/price_impact_ratio_depth.proto
+models/price_response.proto
+models/quoted_price.proto
+models/token_price_info.proto
+services/default_service.proto
