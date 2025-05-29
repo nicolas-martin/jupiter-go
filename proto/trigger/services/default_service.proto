@@ -13,7 +13,7 @@ syntax = "proto3";
 package jupiter.trigger.services.defaultservice;
 
 import "google/protobuf/empty.proto";
-import public "models/combined_models/proto.proto";
+import public "trigger/models/models_proto.proto";
 
 service DefaultService {
   rpc CancelOrderPost (CancelOrderPostRequest) returns (CancelOrderPostResponse);

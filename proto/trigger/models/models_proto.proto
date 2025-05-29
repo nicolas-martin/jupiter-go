@@ -12,7 +12,7 @@ syntax = "proto3";
 
 package jupiter.trigger;
 
-import public "google/protobuf/any.proto.proto";
+import public "google/protobuf/any.proto";
 
 message CancelOrderPost200Response {
 
@@ -57,7 +57,8 @@ message CancelOrdersPost400Response {
   string signature = 4;
 
   enum Status {
-    STATUS_FAILED = 0;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_FAILED = 1;
   }
 
   Status status = 5;
@@ -76,7 +77,8 @@ message CancelOrdersPost500Response {
   string signature = 4;
 
   enum Status {
-    STATUS_FAILED = 0;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_FAILED = 1;
   }
 
   Status status = 5;
@@ -120,7 +122,8 @@ message CreateOrderPost400Response {
   string signature = 4;
 
   enum Status {
-    STATUS_FAILED = 0;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_FAILED = 1;
   }
 
   Status status = 5;
@@ -139,7 +142,8 @@ message CreateOrderPost500Response {
   string signature = 4;
 
   enum Status {
-    STATUS_FAILED = 0;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_FAILED = 1;
   }
 
   Status status = 5;
@@ -195,8 +199,9 @@ message ExecutePost200Response {
   string signature = 2;
 
   enum Status {
-    STATUS_SUCCESS = 0;
-    STATUS_FAILED = 1;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_SUCCESS = 1;
+    STATUS_FAILED = 2;
   }
 
   Status status = 3;
@@ -215,7 +220,8 @@ message ExecutePost400Response {
   string signature = 4;
 
   enum Status {
-    STATUS_FAILED = 0;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_FAILED = 1;
   }
 
   Status status = 5;
@@ -234,7 +240,8 @@ message ExecutePost500Response {
   string signature = 4;
 
   enum Status {
-    STATUS_FAILED = 0;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_FAILED = 1;
   }
 
   Status status = 5;
@@ -258,8 +265,9 @@ message GetTriggerOrdersGet200Response {
 
   // The status of the requested orders
   enum Order_status {
-    ORDER_STATUS_ACTIVE = 0;
-    ORDER_STATUS_HISTORY = 1;
+    ORDER_STATUS_UNSPECIFIED = 0;
+    ORDER_STATUS_ACTIVE = 1;
+    ORDER_STATUS_HISTORY = 2;
   }
 
   Order_status order_status = 2;

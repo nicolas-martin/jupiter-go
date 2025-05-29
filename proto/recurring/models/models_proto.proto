@@ -76,7 +76,8 @@ message AllRecurringResponseOneOf {
   repeated OrderHistoryResponse trades = 26;
 
   enum Recurring_type {
-    RECURRING_TYPE_TIME = 0;
+    RECURRING_TYPE_UNSPECIFIED = 0;
+    RECURRING_TYPE_TIME = 1;
   }
 
   Recurring_type recurring_type = 27;
@@ -148,7 +149,8 @@ message AllRecurringResponseOneOf1 {
   repeated OrderHistoryResponse trades = 31;
 
   enum Recurring_type {
-    RECURRING_TYPE_PRICE = 0;
+    RECURRING_TYPE_UNSPECIFIED = 0;
+    RECURRING_TYPE_PRICE = 1;
   }
 
   Recurring_type recurring_type = 32;
@@ -167,8 +169,9 @@ message CloseRecurring {
 }
 
 enum CloseRecurringType {
-  CLOSE_RECURRING_TYPE_TIME = 0;
-  CLOSE_RECURRING_TYPE_PRICE = 1;
+  CLOSE_RECURRING_TYPE_UNSPECIFIED = 0;
+  CLOSE_RECURRING_TYPE_TIME = 1;
+  CLOSE_RECURRING_TYPE_PRICE = 2;
 }
 
 message CreateRecurring {
@@ -207,8 +210,9 @@ message ExecuteRecurringResponse {
   string signature = 1;
 
   enum Status {
-    STATUS_SUCCESS = 0;
-    STATUS_FAILED = 1;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_SUCCESS = 1;
+    STATUS_FAILED = 2;
   }
 
   Status status = 2;
@@ -317,8 +321,9 @@ message OrderHistoryResponse {
 }
 
 enum OrderState {
-  ORDER_STATE_ACTIVE = 0;
-  ORDER_STATE_HISTORY = 1;
+  ORDER_STATE_UNSPECIFIED = 0;
+  ORDER_STATE_ACTIVE = 1;
+  ORDER_STATE_HISTORY = 2;
 }
 
 message PriceRecurringResponse {
@@ -388,9 +393,10 @@ message PriceRecurringResponse {
 }
 
 enum RecurringOrderType {
-  RECURRING_ORDER_TYPE_TIME = 0;
-  RECURRING_ORDER_TYPE_PRICE = 1;
-  RECURRING_ORDER_TYPE_ALL = 2;
+  RECURRING_ORDER_TYPE_UNSPECIFIED = 0;
+  RECURRING_ORDER_TYPE_TIME = 1;
+  RECURRING_ORDER_TYPE_PRICE = 2;
+  RECURRING_ORDER_TYPE_ALL = 3;
 }
 
 message RecurringResponse {
@@ -509,7 +515,8 @@ message WithdrawPriceRecurring {
 }
 
 enum Withdrawal {
-  WITHDRAWAL_IN = 0;
-  WITHDRAWAL_OUT = 1;
+  WITHDRAWAL_UNSPECIFIED = 0;
+  WITHDRAWAL_IN = 1;
+  WITHDRAWAL_OUT = 2;
 }
 

@@ -20,67 +20,29 @@ generate-proto:
 # Generate proto schemas from OpenAPI specifications
 generate-openapi:
 	@echo "Generating proto schemas from OpenAPI specs..."
-	@mkdir -p proto/ultra proto/swap proto/trigger proto/price proto/token proto/recurring
-	openapi-generator generate \
-		-i open-api/ultra.yaml \
-		-g protobuf-schema \
-		-o proto/ultra \
-		--additional-properties=aggregateModelsName=combined_models.proto \
-		--additional-properties=numberedFieldNumberList=true \
-		--additional-properties=useProto3Optional=true \
-		--type-mappings=AnyType=google.protobuf.Any \
-		--import-mappings=google.protobuf.Any=google/protobuf/any.proto \
-		--package-name=jupiter.ultra
-	openapi-generator generate \
-		-i open-api/swap.yaml \
-		-g protobuf-schema \
-		-o proto/swap \
-		--additional-properties=aggregateModelsName=combined_models.proto \
-		--additional-properties=numberedFieldNumberList=true \
-		--additional-properties=useProto3Optional=true \
-		--type-mappings=AnyType=google.protobuf.Any \
-		--import-mappings=google.protobuf.Any=google/protobuf/any.proto \
-		--package-name=jupiter.swap
-	openapi-generator generate \
-		-i open-api/trigger.yaml \
-		-g protobuf-schema \
-		-o proto/trigger \
-		--additional-properties=aggregateModelsName=combined_models.proto \
-		--additional-properties=numberedFieldNumberList=true \
-		--additional-properties=useProto3Optional=true \
-		--type-mappings=AnyType=google.protobuf.Any \
-		--import-mappings=google.protobuf.Any=google/protobuf/any.proto \
-		--package-name=jupiter.trigger
-	openapi-generator generate \
-		-i open-api/price.yaml \
-		-g protobuf-schema \
-		-o proto/price \
-		--additional-properties=aggregateModelsName=combined_models.proto \
-		--additional-properties=numberedFieldNumberList=true \
-		--additional-properties=useProto3Optional=true \
-		--type-mappings=AnyType=google.protobuf.Any \
-		--import-mappings=google.protobuf.Any=google/protobuf/any.proto \
-		--package-name=jupiter.price
-	openapi-generator generate \
-		-i open-api/token.yaml \
-		-g protobuf-schema \
-		-o proto/token \
-		--additional-properties=aggregateModelsName=combined_models.proto \
-		--additional-properties=numberedFieldNumberList=true \
-		--additional-properties=useProto3Optional=true \
-		--type-mappings=AnyType=google.protobuf.Any \
-		--import-mappings=google.protobuf.Any=google/protobuf/any.proto \
-		--package-name=jupiter.token
-	openapi-generator generate \
-		-i open-api/recurring.yaml \
-		-g protobuf-schema \
-		-o proto/recurring \
-		--additional-properties=aggregateModelsName=combined_models.proto \
-		--additional-properties=numberedFieldNumberList=true \
-		--additional-properties=useProto3Optional=true \
-		--type-mappings=AnyType=google.protobuf.Any \
-		--import-mappings=google.protobuf.Any=google/protobuf/any.proto \
-		--package-name=jupiter.recurring
+	@mkdir -p proto
+	@for yaml_file in open-api/*.yaml; do \
+		if [ -f "$$yaml_file" ]; then \
+			service_name=$$(basename "$$yaml_file" .yaml); \
+			echo "Generating protobuf schemas for $$service_name..."; \
+			mkdir -p "proto/$$service_name"; \
+			openapi-generator generate \
+				-i "$$yaml_file" \
+				-g protobuf-schema \
+				-o "proto/$$service_name" \
+				--additional-properties=aggregateModelsName=models.proto \
+				--additional-properties=numberedFieldNumberList=true \
+				--additional-properties=startEnumsWithUnspecified=true \
+				--additional-properties=supportMultipleResponses=true \
+				--package-name=jupiter.$$service_name \
+				--type-mappings=AnyType=google.protobuf.Any \
+				--import-mappings=google.protobuf.Any=google/protobuf/any.proto; \
+			echo "Fixing import paths for $$service_name..."; \
+			sed -i '' 's|models/models/proto\.proto|'$$service_name'/models/models_proto.proto|g' "proto/$$service_name/services"/*.proto 2>/dev/null || true; \
+			sed -i '' 's|AnyType|google.protobuf.Any|g' "proto/$$service_name/models/models_proto.proto" 2>/dev/null || true; \
+			sed -i '' 's|google/protobuf/any\.proto\.proto|google/protobuf/any.proto|g' "proto/$$service_name/models/models_proto.proto" 2>/dev/null || true; \
+		fi; \
+	done
 
 # Clean generated files
 clean:

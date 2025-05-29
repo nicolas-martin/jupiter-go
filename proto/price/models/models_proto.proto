@@ -28,9 +28,10 @@ message ExtraInfo {
   QuotedPrice quoted_price = 2;
 
   enum Confidence_level {
-    CONFIDENCE_LEVEL_HIGH = 0;
-    CONFIDENCE_LEVEL_MEDIUM = 1;
-    CONFIDENCE_LEVEL_LOW = 2;
+    CONFIDENCE_LEVEL_UNSPECIFIED = 0;
+    CONFIDENCE_LEVEL_HIGH = 1;
+    CONFIDENCE_LEVEL_MEDIUM = 2;
+    CONFIDENCE_LEVEL_LOW = 3;
   }
 
   Confidence_level confidence_level = 3;

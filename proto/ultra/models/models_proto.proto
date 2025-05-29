@@ -28,8 +28,9 @@ message BalancesAddressGet200ResponseValue {
 message ExecutePost200Response {
 
   enum Status {
-    STATUS_SUCCESS = 0;
-    STATUS_FAILED = 1;
+    STATUS_UNSPECIFIED = 0;
+    STATUS_SUCCESS = 1;
+    STATUS_FAILED = 2;
   }
 
   Status status = 1;
@@ -109,9 +110,10 @@ message OrderGet200Response {
   float prioritization_fee_lamports = 12;
 
   enum Swap_type {
-    SWAP_TYPE_AGGREGATOR = 0;
-    SWAP_TYPE_RFQ = 1;
-    SWAP_TYPE_HASHFLOW = 2;
+    SWAP_TYPE_UNSPECIFIED = 0;
+    SWAP_TYPE_AGGREGATOR = 1;
+    SWAP_TYPE_RFQ = 2;
+    SWAP_TYPE_HASHFLOW = 3;
   }
 
   Swap_type swap_type = 13;
@@ -197,12 +199,13 @@ message OrderRoutersGet200ResponseInner {
   string id = 1;
 
   enum Name {
-    NAME_METIS_V1_6 = 0;
-    NAME_JUPITERZ = 1;
-    NAME_HASHFLOW = 2;
-    NAME_DFLOW = 3;
-    NAME_PYTH_EXPRESS_RELAY = 4;
-    NAME_OKX_DEX_ROUTER = 5;
+    NAME_UNSPECIFIED = 0;
+    NAME_METIS_V1_6 = 1;
+    NAME_JUPITERZ = 2;
+    NAME_HASHFLOW = 3;
+    NAME_DFLOW = 4;
+    NAME_PYTH_EXPRESS_RELAY = 5;
+    NAME_OKX_DEX_ROUTER = 6;
   }
 
   Name name = 2;

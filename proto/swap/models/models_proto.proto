@@ -136,8 +136,9 @@ message SwapInstructionsResponse {
 }
 
 enum SwapMode {
-  SWAP_MODE_EXACTIN = 0;
-  SWAP_MODE_EXACTOUT = 1;
+  SWAP_MODE_UNSPECIFIED = 0;
+  SWAP_MODE_EXACTIN = 1;
+  SWAP_MODE_EXACTOUT = 2;
 }
 
 message SwapRequest {
@@ -195,9 +196,10 @@ message SwapRequestPrioritizationFeeLamports {
 message SwapRequestPrioritizationFeeLamportsPriorityLevelWithMaxLamports {
 
   enum Priority_level {
-    PRIORITY_LEVEL_MEDIUM = 0;
-    PRIORITY_LEVEL_HIGH = 1;
-    PRIORITY_LEVEL_VERYHIGH = 2;
+    PRIORITY_LEVEL_UNSPECIFIED = 0;
+    PRIORITY_LEVEL_MEDIUM = 1;
+    PRIORITY_LEVEL_HIGH = 2;
+    PRIORITY_LEVEL_VERYHIGH = 3;
   }
 
   Priority_level priority_level = 1;
